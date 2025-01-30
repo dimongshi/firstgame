@@ -1,0 +1,120 @@
+/* styles.css */
+body {
+    font-family: "Microsoft YaHei";
+    background-color: #f8f8f8;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.welcome-page {
+    background-color: #3CB371;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-button {
+    background: linear-gradient(to right, #FFD700, #FFA500);
+    color: #D4380D;
+    font-size: 24px;
+    padding: 20px 40px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    border: none;
+}
+
+.start-button:hover {
+    transform: scale(1.1);
+}
+
+.game-page {
+    background-image: url('./image/game_background.jpeg'); /* 修改路径 */
+    background-size: cover;
+    height: 100vh;
+    display: none;
+    position: relative; /* 确保子元素相对定位 */
+}
+
+.game-header {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: #D4380D;
+}
+
+.game-container {
+    display: grid;
+    /* 根据背景图尺寸和九宫格布局调整列和行的大小 */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    width: 80%; /* 调整九宫格容器的宽度 */
+    height: 80%; /* 调整九宫格容器的高度 */
+    position: absolute; /* 绝对定位 */
+    top: 50%; /* 垂直居中 */
+    left: 50%; /* 水平居中 */
+    transform: translate(-50%, -50%); /* 居中调整 */
+}
+
+.hole {
+    border: 1px solid #000;
+    /* 根据九宫格容器的尺寸自动调整每个格子的高度 */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mouse {
+    width: 80%;
+    height: 80%;
+    background-image: url('./image/mouse.png'); /* 修改路径 */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.result-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: linear-gradient(to right, #FFD700, #FFA500);
+    border-radius: 30px;
+    padding: 50px;
+    text-align: center;
+}
+
+.replay-button {
+    background: linear-gradient(to right, #FFD700, #FFA500);
+    color: #D4380D;
+    font-size: 24px;
+    padding: 20px 40px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    border: none;
+}
+
+.replay-button:hover {
+    transform: scale(1.1);
+}
+
+.hidden {
+    display: none;
+}

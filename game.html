@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九宫格打地鼠小游戏</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="welcome-page" class="welcome-page">
+        <div class="welcome-content"></div>
+        <button id="start-button" class="start-button">开始游戏</button>
+    </div>
+    <div id="game-page" class="game-page hidden">
+        <div id="game-header" class="game-header">
+            <span id="score-display">得分: 0</span>
+            <span id="time-display">倒计时: 30</span>
+        </div>
+        <div id="game-container" class="game-container">
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+            <div class="hole"></div>
+        </div>
+    </div>
+    <div id="result-modal" class="result-modal hidden">
+        <div class="modal-content">
+            <h2>游戏结束</h2>
+            <p id="final-score">最终得分: 0</p>
+            <button id="replay-button" class="replay-button">重新开始</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

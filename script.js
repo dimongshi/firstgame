@@ -49,13 +49,20 @@ function updateTime() {
 }
 
 function appearMouse() {
-    const randomHole = Math.floor(Math.random() * holes.length);
-    const hole = holes[randomHole];
+    // 找到所有没有地鼠的洞
+    const emptyHoles = Array.from(holes).filter(hole => !hole.querySelector('.mouse'));
+    
+    // 如果没有空洞，则不生成地鼠
+    if (emptyHoles.length === 0) {
+        return;
+    }
+    
+    const randomHole = emptyHoles[Math.floor(Math.random() * emptyHoles.length)];
     const mouse = document.createElement('div');
     mouse.classList.add('mouse');
-    hole.appendChild(mouse);
+    randomHole.appendChild(mouse);
     setTimeout(() => {
-        hole.removeChild(mouse);
+        randomHole.removeChild(mouse);
     }, GAME_CONFIG.MOUSE_DISAPPEAR_TIME);
 }
 

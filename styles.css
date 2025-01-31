@@ -16,16 +16,42 @@ body {
     justify-content: center;
     align-items: center;
 }
+.difficulty-select-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background-color: #ffa500; /* 难度选择容器背景色改为橙色 */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.difficulty-label {
+    font-size: 24px;
+    font-family: 'Arial', sans-serif; /* 替换为您喜欢的艺术字体 */
+    margin-right: 10px;
+    color: #fff; /* 文字颜色改为白色 */
+}
+
+.difficulty-select {
+    font-size: 24px;
+    font-family: 'Arial', sans-serif; /* 替换为您喜欢的艺术字体 */
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+}
 
 .start-button {
-    background: linear-gradient(to right, #FFD700, #FFA500);
-    color: #D4380D;
     font-size: 24px;
-    padding: 20px 40px;
-    border-radius: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
+    font-family: 'Arial', sans-serif; /* 替换为您喜欢的艺术字体 */
+    padding: 10px 20px;
     border: none;
+    border-radius: 5px;
+    background-color: #ffa500; /* 开始游戏按钮背景色改为橙色 */
+    color: #fff;
+    cursor: pointer;
 }
 
 .start-button:hover {

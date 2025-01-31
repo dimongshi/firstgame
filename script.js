@@ -30,14 +30,28 @@ function resetGame() {
     gamePage.style.display = 'block'; // 确保游戏页面显示
     welcomePage.style.display = 'none'; // 隐藏欢迎页面
 }
+const difficultySelect = document.getElementById('difficulty-select');
+let difficulty = difficultySelect.value; // 默认难度为简单
+difficultySelect.addEventListener('change', function() {
+    difficulty = difficultySelect.value;
+});
 
 function startGame() {
     resetGame();
-    // 清除之前可能存在的定时器
     clearInterval(gameInterval);
     clearInterval(mouseInterval);
+    // 根据难度设置地鼠出现间隔
+    let mouseAppearInterval;
+    if (difficulty === 'easy') {
+        mouseAppearInterval = 30000 / 18; // 30秒内平均出现18个地鼠
+    } else if (difficulty === 'normal') {
+        mouseAppearInterval = 30000 / 38; // 30秒内平均出现38个地鼠
+    } else if (difficulty === 'hard') {
+        mouseAppearInterval = 30000 / 58; // 30秒内平均出现58个地鼠
+    }
+
     gameInterval = setInterval(updateTime, 1000);
-    mouseInterval = setInterval(appearMouse, GAME_CONFIG.MOUSE_APPEAR_INTERVAL);
+    mouseInterval = setInterval(appearMouse, mouseAppearInterval);
 }
 
 function updateTime() {
@@ -78,10 +92,23 @@ function endGame() {
     clearInterval(gameInterval);
     clearInterval(mouseInterval);
     finalScoreDisplay.textContent = `最终得分: ${currentScore}`;
+
+    // 根据难度设置满分
+    let maxScore;
+    if (difficulty === 'easy') {
+        maxScore = 180;
+    } else if (difficulty === 'normal') {
+        maxScore = 380;
+    } else if (difficulty === 'hard') {
+        maxScore = 580;
+    }
+    const maxScoreDisplay = document.getElementById('max-score');
+    maxScoreDisplay.textContent = `满分: ${maxScore}`;
+
     resultModal.style.display = 'flex';
     gamePage.style.display = 'none';
-    welcomePage.style.display = 'none'; // 隐藏欢迎页面
-    startButton.style.display = 'none'; // 隐藏开始游戏按钮
+    welcomePage.style.display = 'none';
+    startButton.style.display = 'none';
 }
 
 startButton.addEventListener('click', startGame);

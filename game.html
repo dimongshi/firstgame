@@ -11,6 +11,14 @@
 <body>
     <div id="welcome-page" class="welcome-page">
         <div class="welcome-content"></div>
+        <div class="difficulty-select-container">
+            <span class="difficulty-label">难度选择</span>
+            <select id="difficulty-select" class="difficulty-select">
+                <option value="easy">简单</option>
+                <option value="normal">普通</option>
+                <option value="hard">地狱</option>
+            </select>
+        </div>
         <button id="start-button" class="start-button">开始游戏</button>
     </div>
     <div id="game-page" class="game-page hidden">
@@ -34,6 +42,7 @@
         <div class="modal-content">
             <h2>游戏结束</h2>
             <p id="final-score">最终得分: 0</p>
+            <p id="max-score">满分: 0</p> <!-- 新增满分显示 -->
             <button id="replay-button" class="replay-button">重新开始</button>
         </div>
     </div>
